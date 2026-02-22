@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="EigenFlow — Systematic Quantitative Research & Portfolio Engineering. 系统化量化研究与组合构建。">
+    <meta name="keywords" content="quantitative research, systematic, A-share, factor model, portfolio engineering, regime analysis, eigenflow">
+    <title>EigenFlow | 系统化量化研究与组合构建</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="theme-dark">
+    <a href="#about" class="skip-link" data-zh="跳过至主内容" data-en="Skip to main content">跳过至主内容</a>
+    <!-- Config (parameterized) -->
+    <script>
+      window.EIGENFLOW_CONFIG = {
+        DASHBOARD_URL: "https://eigenflow-quant-research.streamlit.app/",
+        CONTACT_EMAIL: "research.eigenflow@gmail.com",
+        WECHAT_ID: "Always_With_XMJ"
+      };
+    </script>
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar" role="navigation" aria-label="Main">
+        <div class="nav-container">
+            <a href="#" class="logo" aria-label="EigenFlow Home">
+                <svg class="logo-icon" viewBox="0 0 32 32" width="32" height="32" aria-hidden="true">
+                    <rect width="32" height="32" rx="4" fill="currentColor" opacity="0.12"/>
+                    <path d="M6 22 Q10 8 16 16 Q22 24 26 10" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="logo-text">EigenFlow</span>
+            </a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+            <div class="nav-menu" id="navMenu">
+                <div class="nav-links">
+                    <a href="#about" class="nav-link" data-zh="研究" data-en="Research">研究</a>
+                    <a href="#framework" class="nav-link" data-zh="框架" data-en="Framework">框架</a>
+                    <a href="#philosophy" class="nav-link" data-zh="理念" data-en="Philosophy">理念</a>
+                    <a href="#disclosure" class="nav-link" data-zh="披露" data-en="Disclosure">披露</a>
+                    <a href="#collaboration" class="nav-link" data-zh="合作" data-en="Collaboration">合作</a>
+                </div>
+                <div class="nav-actions">
+                    <button class="lang-toggle" id="langToggle" aria-label="Toggle language ZH/EN">
+                        <span class="lang-zh">中</span>
+                        <span class="lang-divider">/</span>
+                        <span class="lang-en">EN</span>
+                    </button>
+                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+                        <span class="icon-dark" aria-hidden="true">◇</span>
+                        <span class="icon-light" aria-hidden="true">◐</span>
+                    </button>
+                    <a href="#" id="navDashboardLink" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
+                        <span data-zh="进入平台" data-en="View Dashboard">进入平台</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" id="hero">
+        <div class="hero-bg" aria-hidden="true"></div>
+        <div class="container">
+            <h1 class="hero-title">
+                <span data-zh="EigenFlow｜系统化量化研究与组合构建" data-en="EigenFlow — Systematic Quantitative Research & Portfolio Engineering">EigenFlow｜系统化量化研究与组合构建</span>
+            </h1>
+            <p class="hero-subtitle">
+                <span data-zh="专注于A股截面因子、市场状态识别与风险约束的系统化研究平台。" data-en="A research-driven platform focusing on cross-sectional equity signals, market regime analysis, and risk-controlled portfolio construction.">专注于A股截面因子、市场状态识别与风险约束的系统化研究平台。</span>
+            </p>
+            <div class="hero-actions">
+                <a href="#" id="heroDashboardLink" target="_blank" rel="noopener" class="btn btn-primary">
+                    <span data-zh="进入研究平台" data-en="View Research Dashboard">进入研究平台</span>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+                <a href="#collaboration" class="btn btn-secondary">
+                    <span data-zh="合作交流" data-en="Collaboration">合作交流</span>
+                </a>
+            </div>
+            <p class="hero-badge">
+                <span class="badge-dot" aria-hidden="true"></span>
+                <span data-zh="仅供研究交流，不构成投资建议" data-en="Research only — not investment advice">仅供研究交流，不构成投资建议</span>
+            </p>
+        </div>
+    </section>
+
+    <!-- About / What We Do -->
+    <section class="section" id="about" aria-labelledby="about-heading">
+        <div class="container">
+            <header class="section-header">
+                <h2 id="about-heading" class="section-title" data-zh="关于 EigenFlow" data-en="About EigenFlow">关于 EigenFlow</h2>
+                <p class="section-desc" data-zh="我们专注于A股市场的系统化量化研究，致力于在严格风险约束下探索超额收益来源。" data-en="We focus on systematic quantitative research for the A-share market, exploring alpha sources under strict risk constraints.">我们专注于A股市场的系统化量化研究，致力于在严格风险约束下探索超额收益来源。</p>
+            </header>
+            <div class="features-grid">
+                <article class="feature-card">
+                    <div class="feature-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3v18h18"/><path d="M7 16l4-4 4 4 5-6"/></svg>
+                    </div>
+                    <h3 class="feature-title" data-zh="A股截面多因子模型研究" data-en="Cross-sectional multi-factor modeling for A-shares">A股截面多因子模型研究</h3>
+                    <p class="feature-desc" data-zh="基于截面回归与因子正交化方法，构建多维度因子体系。" data-en="Multi-dimensional factor system using cross-sectional regression and orthogonalization.">基于截面回归与因子正交化方法，构建多维度因子体系。</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 2v4m0 12v4M2 12h4m12 0h4"/><path d="M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"/></svg>
+                    </div>
+                    <h3 class="feature-title" data-zh="小市值增强与结构性机会识别" data-en="Small-cap enhancement & structural opportunity detection">小市值增强与结构性机会识别</h3>
+                    <p class="feature-desc" data-zh="挖掘小市值股票中的价值与成长溢价，识别结构性机会。" data-en="Identifying value and growth premiums in small-cap segments and structural opportunities.">挖掘小市值股票中的价值与成长溢价，识别结构性机会。</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                    </div>
+                    <h3 class="feature-title" data-zh="动量与趋势突破信号研究" data-en="Momentum and breakout signal research">动量与趋势突破信号研究</h3>
+                    <p class="feature-desc" data-zh="基于量价关系的趋势识别与动量因子研究，不披露具体信号。" data-en="Trend recognition and momentum factor research based on price-volume relationships; no signal details disclosed.">基于量价关系的趋势识别与动量因子研究。</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v4m0 12v4M2 12h4m16 0h-4"/><circle cx="12" cy="12" r="4"/></svg>
+                    </div>
+                    <h3 class="feature-title" data-zh="市场状态（Risk-On / Risk-Off）识别" data-en="Market regime identification (Risk-On / Risk-Off)">市场状态（Risk-On / Risk-Off）识别</h3>
+                    <p class="feature-desc" data-zh="风险状态切换的量化判断与动态调整参考。" data-en="Quantitative regime judgment for dynamic adjustment reference.">风险状态切换的量化判断与动态调整参考。</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Framework (timeline) -->
+    <section class="section section-alt" id="framework" aria-labelledby="framework-heading">
+        <div class="container">
+            <header class="section-header">
+                <h2 id="framework-heading" class="section-title" data-zh="研究框架" data-en="Research Framework">研究框架</h2>
+                <p class="section-desc" data-zh="从数据处理到稳健性验证的完整量化研究流程。" data-en="Complete quantitative research process from data processing to robustness validation.">从数据处理到稳健性验证的完整量化研究流程。</p>
+            </header>
+            <div class="timeline" role="list">
+                <div class="timeline-item" role="listitem">
+                    <div class="timeline-marker" aria-hidden="true"></div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title" data-zh="数据处理" data-en="Data Processing">数据处理</h3>
+                        <p class="timeline-desc" data-zh="清洗、标准化、缺失值处理。" data-en="Cleaning, standardization, missing value handling.">清洗、标准化、缺失值处理。</p>
+                    </div>
+                </div>
+                <div class="timeline-connector" aria-hidden="true"></div>
+                <div class="timeline-item" role="listitem">
+                    <div class="timeline-marker" aria-hidden="true"></div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title" data-zh="因子构建" data-en="Factor Construction">因子构建</h3>
+                        <p class="timeline-desc" data-zh="Alpha因子挖掘与风险因子剥离。" data-en="Alpha factor mining and risk factor stripping.">Alpha因子挖掘与风险因子剥离。</p>
+                    </div>
+                </div>
+                <div class="timeline-connector" aria-hidden="true"></div>
+                <div class="timeline-item" role="listitem">
+                    <div class="timeline-marker" aria-hidden="true"></div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title" data-zh="截面排序" data-en="Cross-Sectional Ranking">截面排序</h3>
+                        <p class="timeline-desc" data-zh="多因子加权与股票排名。" data-en="Multi-factor weighting and stock ranking.">多因子加权与股票排名。</p>
+                    </div>
+                </div>
+                <div class="timeline-connector" aria-hidden="true"></div>
+                <div class="timeline-item" role="listitem">
+                    <div class="timeline-marker" aria-hidden="true"></div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title" data-zh="组合构建" data-en="Portfolio Formation">组合构建</h3>
+                        <p class="timeline-desc" data-zh="权重优化与行业中性、成本与容量评估。" data-en="Weight optimization, industry neutrality, cost & capacity evaluation.">权重优化与行业中性。</p>
+                    </div>
+                </div>
+                <div class="timeline-connector" aria-hidden="true"></div>
+                <div class="timeline-item" role="listitem">
+                    <div class="timeline-marker" aria-hidden="true"></div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title" data-zh="成本与容量评估" data-en="Cost & Capacity Evaluation">成本与容量评估</h3>
+                        <p class="timeline-desc" data-zh="交易成本估算与规模约束。" data-en="Transaction cost estimation and scale constraints.">交易成本估算与规模约束。</p>
+                    </div>
+                </div>
+                <div class="timeline-connector" aria-hidden="true"></div>
+                <div class="timeline-item" role="listitem">
+                    <div class="timeline-marker" aria-hidden="true"></div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title" data-zh="稳健性检验" data-en="Robustness Testing">稳健性检验</h3>
+                        <p class="timeline-desc" data-zh="样本外测试与参数敏感性。" data-en="Out-of-sample testing and parameter sensitivity.">样本外测试与参数敏感性。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Strategy Philosophy -->
+    <section class="section" id="philosophy" aria-labelledby="philosophy-heading">
+        <div class="container">
+            <header class="section-header">
+                <h2 id="philosophy-heading" class="section-title" data-zh="策略理念" data-en="Strategy Philosophy">策略理念</h2>
+                <p class="section-desc" data-zh="我们坚持风险优先、系统执行的核心理念。" data-en="We adhere to risk-first, systematic execution.">我们坚持风险优先、系统执行的核心理念。</p>
+            </header>
+            <div class="philosophy-grid">
+                <article class="philosophy-card">
+                    <span class="philosophy-number" aria-hidden="true">01</span>
+                    <h3 class="philosophy-title" data-zh="风险优先，而非收益最大化" data-en="Risk-first, not return maximization">风险优先，而非收益最大化</h3>
+                    <p class="philosophy-desc" data-zh="将风险管理置于收益最大化之前，通过严格的敞口控制与回撤约束保护资本。" data-en="Prioritizing risk management over return maximization; protecting capital through strict exposure control and drawdown constraints.">将风险管理置于收益最大化之前，通过严格的敞口控制与回撤约束保护资本。</p>
+                </article>
+                <article class="philosophy-card">
+                    <span class="philosophy-number" aria-hidden="true">02</span>
+                    <h3 class="philosophy-title" data-zh="分散与稳定性优于短期爆发" data-en="Diversification & stability over short-term performance">分散与稳定性优于短期爆发</h3>
+                    <p class="philosophy-desc" data-zh="追求长期稳定收益，分散化是实现风险调整后收益的核心手段。" data-en="Pursuing long-term stable returns; diversification is the core means for risk-adjusted returns.">追求长期稳定收益，分散化是实现风险调整后收益的核心手段。</p>
+                </article>
+                <article class="philosophy-card">
+                    <span class="philosophy-number" aria-hidden="true">03</span>
+                    <h3 class="philosophy-title" data-zh="系统执行，尽量减少主观判断" data-en="Systematic execution with minimal discretion">系统执行，尽量减少主观判断</h3>
+                    <p class="philosophy-desc" data-zh="以量化模型驱动的系统化执行，最大程度减少主观判断带来的偏差。" data-en="Quant model–driven systematic execution, minimizing biases from discretionary decisions.">以量化模型驱动的系统化执行，最大程度减少主观判断带来的偏差。</p>
+                </article>
+                <article class="philosophy-card">
+                    <span class="philosophy-number" aria-hidden="true">04</span>
+                    <h3 class="philosophy-title" data-zh="在不同市场环境下保持一致性" data-en="Consistency across different market environments">在不同市场环境下保持一致性</h3>
+                    <p class="philosophy-desc" data-zh="策略逻辑在不同市场环境下保持一致，不因短期波动而轻易改变方法论。" data-en="Consistent strategy logic across regimes; methodology not changed by short-term volatility.">策略逻辑在不同市场环境下保持一致，不因短期波动而轻易改变方法论。</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Risk & Compliance Disclosure -->
+    <section class="section section-disclosure" id="disclosure" aria-labelledby="disclosure-heading">
+        <div class="container">
+            <header class="section-header">
+                <h2 id="disclosure-heading" class="section-title" data-zh="风险与合规声明" data-en="Risk & Compliance Disclosure">风险与合规声明</h2>
+            </header>
+            <div class="disclosure-box">
+                <p class="disclosure-text" data-zh="本平台所有内容仅用于研究与信息展示目的，不构成任何投资建议或收益承诺。市场存在风险，历史表现不代表未来结果。任何投资决策应由用户自行判断并承担风险。EigenFlow 不提供代客理财或投资咨询服务。" data-en="All content is for research and informational purposes only and does not constitute investment advice or any form of return guarantee. Market investments involve risk. Past performance does not guarantee future results. Users make decisions at their own risk. EigenFlow does not provide asset management or investment advisory services.">本平台所有内容仅用于研究与信息展示目的，不构成任何投资建议或收益承诺。市场存在风险，历史表现不代表未来结果。任何投资决策应由用户自行判断并承担风险。EigenFlow 不提供代客理财或投资咨询服务。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Dashboard Preview -->
+    <section class="section section-alt" id="dashboard" aria-labelledby="dashboard-heading">
+        <div class="container">
+            <header class="section-header">
+                <h2 id="dashboard-heading" class="section-title" data-zh="研究平台" data-en="Research Dashboard">研究平台</h2>
+                <p class="section-desc" data-zh="交互式量化研究工具，助您深入理解市场与策略。" data-en="Interactive quantitative research tools for deeper market and strategy understanding.">交互式量化研究工具，助您深入理解市场与策略。</p>
+            </header>
+            <div class="dashboard-preview">
+                <div class="dashboard-mockup" aria-hidden="true">
+                    <div class="mockup-header">
+                        <div class="mockup-dots"><span></span><span></span><span></span></div>
+                        <span class="mockup-title">EigenFlow Research</span>
+                    </div>
+                    <div class="mockup-content">
+                        <div class="mockup-sidebar">
+                            <div class="mockup-nav-item active"></div>
+                            <div class="mockup-nav-item"></div>
+                            <div class="mockup-nav-item"></div>
+                        </div>
+                        <div class="mockup-main">
+                            <div class="mockup-chart"></div>
+                            <div class="mockup-grid"></div>
+                        </div>
+                    </div>
+                </div>
+                <ul class="dashboard-features" role="list">
+                    <li data-zh="市场状态与 regime 指标" data-en="Market regime indicators">市场状态与 regime 指标</li>
+                    <li data-zh="组合结构与分析" data-en="Portfolio structure analytics">组合结构与分析</li>
+                    <li data-zh="绩效与风险指标" data-en="Performance & risk metrics">绩效与风险指标</li>
+                </ul>
+                <a href="#" id="dashboardSectionLink" target="_blank" rel="noopener" class="btn btn-primary">
+                    <span data-zh="进入研究平台" data-en="View Research Dashboard">进入研究平台</span>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Collaboration / Contact -->
+    <section class="section" id="collaboration" aria-labelledby="collaboration-heading">
+        <div class="container">
+            <header class="section-header">
+                <h2 id="collaboration-heading" class="section-title" data-zh="合作与联系" data-en="Collaboration">合作与联系</h2>
+                <p class="section-desc" data-zh="开放合作：量化因子研究合作、策略框架与组合建模、数据分析与金融建模、学术与行业研究交流。" data-en="Open for: quant factor research collaboration, portfolio/strategy framework development, financial data analysis & modeling, academic and industry research exchange.">开放合作：量化因子研究合作、策略框架与组合建模、数据分析与金融建模、学术与行业研究交流。</p>
+            </header>
+            <div class="contact-block">
+                <p class="contact-email">
+                    <span data-zh="邮箱" data-en="Email">邮箱</span>: <a href="mailto:research.eigenflow@gmail.com" id="contactEmailLink">research.eigenflow@gmail.com</a>
+                </p>
+                <p class="contact-wechat" data-zh="微信（可选）" data-en="WeChat (optional)">微信（可选）: <span id="wechatId">Always_With_XMJ</span></p>
+                <a href="mailto:research.eigenflow@gmail.com" id="contactCtaLink" class="btn btn-primary">
+                    <span data-zh="联系合作" data-en="Contact">联系合作</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-inner">
+                <p class="footer-copy">&copy; <span id="footerYear"></span> EigenFlow. <span data-zh="研究仅供交流，不构成投资建议。" data-en="Research only. Not investment advice.">研究仅供交流，不构成投资建议。</span></p>
+                <nav class="footer-links" aria-label="Footer">
+                    <a href="https://eigenflow.cn">eigenflow.cn</a>
+                    <a href="#" id="footerDashboardLink" target="_blank" rel="noopener" data-zh="研究平台" data-en="Dashboard">研究平台</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
