@@ -8,8 +8,8 @@
 
   var config = window.EIGENFLOW_CONFIG || {};
   var dashboardUrl = (config.DASHBOARD_URL || 'https://eigenflow-quant-research.streamlit.app/').trim();
-  var contactEmail = config.CONTACT_EMAIL || 'research.eigenflow@gmail.com';
-  var wechatId = config.WECHAT_ID || 'Always_With_XMJ';
+  var contactEmail = config.CONTACT_EMAIL || 'sales@eigenflow.cn';
+  var wechatId = config.WECHAT_ID || '17770784849';
 
   function getStoredLang() {
     try {
