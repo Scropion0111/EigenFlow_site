@@ -627,5 +627,28 @@ button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
   border-radius: 6px;
   z-index: 200;
   transition: top 0.2s;
+/* Business & Quant card layout */
+#business .features-grid,
+#about .features-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px;
+}
+
+/* Tablet */
+@media (max-width: 1000px) {
+    #business .features-grid,
+    #about .features-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+    #business .features-grid,
+    #about .features-grid {
+        grid-template-columns: 1fr;
+    }
+}
 }
 .skip-link:focus { top: 1rem; }
